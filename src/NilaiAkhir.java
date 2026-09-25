@@ -19,7 +19,8 @@ public class NilaiAkhir {
         System.out.print("Nilai tugas     : ");
         double tugas = input.nextDouble();
 
-
+        System.out.print("Nilai MID       : ");
+        double mid = input.nextDouble();
 
 
 
@@ -29,7 +30,8 @@ public class NilaiAkhir {
          * precedence lebih tinggi daripada operator +.
          */
         double akhir = praktikum * BOBOT_PRAKTIKUM
-                + tugas * BOBOT_TUGAS;
+                + tugas * BOBOT_TUGAS
+                + mid * BOBOT_MID;
 
 
 
@@ -70,6 +72,9 @@ public class NilaiAkhir {
 
         System.out.printf("Praktikum : %.1f (30%%)%n", praktikum);
         System.out.printf("Tugas     : %.1f (20%%)%n", tugas);
+        System.out.printf("MID       : %.1f (20%%)%n", mid);
+
+
 
 
 
