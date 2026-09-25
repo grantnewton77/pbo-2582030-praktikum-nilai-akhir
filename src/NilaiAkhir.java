@@ -2,7 +2,6 @@ import java.util.Scanner;
 
 public class NilaiAkhir {
 
-
     static final double BOBOT_PRAKTIKUM = 0.30;
     static final double BOBOT_TUGAS = 0.20;
     static final double BOBOT_MID = 0.20;
@@ -11,7 +10,6 @@ public class NilaiAkhir {
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
-
 
         System.out.print("Nilai praktikum : ");
         double praktikum = input.nextDouble();
@@ -22,50 +20,45 @@ public class NilaiAkhir {
         System.out.print("Nilai MID       : ");
         double mid = input.nextDouble();
 
-
+        System.out.print("Nilai final     : ");
+        double finalNilai = input.nextDouble();
 
         /*
-         * Menghitung nilai akhir dalam satu ekspresi.
-         * Tidak menggunakan tanda kurung karena operator * memiliki
-         * precedence lebih tinggi daripada operator +.
+         * Menghitung nilai akhir menggunakan operator precedence.
+         * Tidak menggunakan tanda kurung karena operator *
+         * memiliki precedence lebih tinggi daripada operator +.
          */
         double akhir = praktikum * BOBOT_PRAKTIKUM
                 + tugas * BOBOT_TUGAS
                 + mid * BOBOT_MID;
 
-
-
         /*
-         * Contoh augmented assignment:
-         * komponen nilai final ditambahkan menggunakan operator +=.
+         * Menggunakan augmented assignment untuk menambahkan
+         * komponen nilai Final.
          */
-
-        akhir +=  BOBOT_FINAL;
+        akhir += finalNilai * BOBOT_FINAL;
 
         /*
          * Percobaan versi bilangan bulat:
+         *
+         * Jika semua variabel nilai diubah menjadi int, maka:
          *
          * int hasilInt = praktikum * 30 / 100
          *              + tugas * 20 / 100
          *              + mid * 20 / 100
          *              + finalNilai * 30 / 100;
          *
-         * Hasilnya 78, bukan 79.1, karena perhitungan menggunakan int.
-         * Pembagian bilangan bulat memotong bagian desimal.
+         * Hasilnya 78, bukan 79.1, karena pembagian bilangan bulat
+         * memotong bagian desimal pada setiap perhitungan.
          */
-
 
         int dipotong = (int) akhir;
 
-
         long dibulatkan = Math.round(akhir);
-
 
         double selisih = akhir - dibulatkan;
 
-
         boolean lulus = akhir >= 60;
-
 
         System.out.println();
         System.out.println("===== NILAI AKHIR =====");
@@ -73,10 +66,7 @@ public class NilaiAkhir {
         System.out.printf("Praktikum : %.1f (30%%)%n", praktikum);
         System.out.printf("Tugas     : %.1f (20%%)%n", tugas);
         System.out.printf("MID       : %.1f (20%%)%n", mid);
-
-
-
-
+        System.out.printf("Final     : %.1f (30%%)%n", finalNilai);
 
         System.out.println();
 
